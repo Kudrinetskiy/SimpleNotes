@@ -7,6 +7,7 @@
 //
 
 #import "PSRNote.h"
+#import "NSObject+PSRColorConversion.h"
 
 @implementation PSRNote
 
@@ -23,24 +24,9 @@
     return self;
 }
 
-- (NSString *)uiColorToString:(UIColor *)color
-{
-    return [[color description] componentsSeparatedByString:@"e "][1];
-}
-
-- (UIColor *)stringToUIColor:(NSString *)colorString
-{
-    CIColor * ciColor = [CIColor colorWithString:colorString];
-    UIColor * color = [UIColor colorWithRed:ciColor.red
-                                      green:ciColor.green
-                                       blue:ciColor.blue
-                                      alpha:ciColor.alpha];
-    return color;
-}
-
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.text forKey:@"text"];
-    [coder encodeObject:[self uiColorToString:self.textColor] forKey:@"textColor"];
+    [coder encodeObject:[self psr_uiColorToString:self.textColor] forKey:@"textColor"];
     [coder encodeObject:self.font forKey:@"font"];
     [coder encodeObject:self.date forKey:@"date"];
 }    
@@ -50,7 +36,7 @@
     
     if (self) {
         self.text = [aDecoder decodeObjectForKey:@"text"];
-        self.textColor = [self stringToUIColor:[aDecoder decodeObjectForKey:@"textColor"]];
+        self.textColor = [self psr_stringToUIColor:[aDecoder decodeObjectForKey:@"textColor"]];
         self.font = [aDecoder decodeObjectForKey:@"font"];
         self.date = [aDecoder decodeObjectForKey:@"date"];
     }

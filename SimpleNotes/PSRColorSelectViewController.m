@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Daniil Korotin. All rights reserved.
 //
 
+#import "NSObject+PSRColorConversion.h"
 #import "PSRColorSelectViewController.h"
 #import "PSRColorSelectView.h"
 #import "PSRDetailViewController.h"
@@ -24,7 +25,7 @@
     
     self.colorSelectView = (PSRColorSelectView *)self.view;
     self.colorSelectView.colorView.backgroundColor = self.noteColor;
-    CIColor * color = [self uiColorToCIColor:self.noteColor];
+    CIColor * color = [self psr_uiColorToCIColor:self.noteColor];
     self.colorSelectView.redSlider.value = color.red;
     self.colorSelectView.greenSlider.value = color.green;
     self.colorSelectView.blueSlider.value = color.blue;
@@ -34,7 +35,7 @@
 
 - (IBAction)setComponent:(id)sender
 {
-    CIColor * color = [self uiColorToCIColor:self.noteColor];
+    CIColor * color = [self psr_uiColorToCIColor:self.noteColor];
     self.colorSelectView.colorView.backgroundColor = [UIColor
                                                       colorWithRed:self.colorSelectView.redSlider.value
                                                       green:self.colorSelectView.greenSlider.value
@@ -46,14 +47,6 @@
 {
     [self.delegate addColorSelectViewController:self didFinishEditingColor:self.colorSelectView.colorView.backgroundColor];
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark - Private Methods
-
-- (CIColor * )uiColorToCIColor:(UIColor *)color
-{
-    NSString * colorString = [[color description] componentsSeparatedByString:@"e "][1];
-    return [CIColor colorWithString:colorString];
 }
 
 @end
