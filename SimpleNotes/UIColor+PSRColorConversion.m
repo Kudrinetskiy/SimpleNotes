@@ -6,22 +6,11 @@
 //  Copyright (c) 2014 Daniil Korotin. All rights reserved.
 //
 
-#import "NSObject+PSRColorConversion.h"
+#import "UIColor+PSRColorConversion.h"
 
-@implementation NSObject (PSRColorConversion)
+@implementation UIColor (PSRColorConversion)
 
-- (CIColor * )psr_uiColorToCIColor:(UIColor *)color
-{
-    NSString * colorString = [[color description] componentsSeparatedByString:@"e "][1];
-    return [CIColor colorWithString:colorString];
-}
-
-- (NSString *)psr_uiColorToString:(UIColor *)color
-{
-    return [[color description] componentsSeparatedByString:@"e "][1];
-}
-
-- (UIColor *)psr_stringToUIColor:(NSString *)colorString
++ (UIColor *)psr_stringToColor:(NSString *)colorString
 {
     CIColor * ciColor = [CIColor colorWithString:colorString];
     UIColor * color = [UIColor colorWithRed:ciColor.red
@@ -29,6 +18,17 @@
                                        blue:ciColor.blue
                                       alpha:ciColor.alpha];
     return color;
+}
+
+- (CIColor * )psr_ciColor
+{
+    NSString * colorString = [[self description] componentsSeparatedByString:@"e "][1];
+    return [CIColor colorWithString:colorString];
+}
+
+- (NSString *)psr_colorToString
+{
+    return [[self description] componentsSeparatedByString:@"e "][1];
 }
 
 @end

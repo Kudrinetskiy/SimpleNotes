@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Daniil Korotin. All rights reserved.
 //
 
-#import "NSObject+PSRColorConversion.h"
 #import "PSRColorSelectViewController.h"
 #import "PSRColorSelectView.h"
 #import "PSRDetailViewController.h"
+#import "UIColor+PSRColorConversion.h"
 
 @interface PSRColorSelectViewController ()
 
@@ -25,7 +25,7 @@
     
     self.colorSelectView = (PSRColorSelectView *)self.view;
     self.colorSelectView.colorView.backgroundColor = self.noteColor;
-    CIColor * color = [self psr_uiColorToCIColor:self.noteColor];
+    CIColor * color = [self.noteColor psr_ciColor];
     self.colorSelectView.redSlider.value = color.red;
     self.colorSelectView.greenSlider.value = color.green;
     self.colorSelectView.blueSlider.value = color.blue;
@@ -35,7 +35,7 @@
 
 - (IBAction)setComponent:(id)sender
 {
-    CIColor * color = [self psr_uiColorToCIColor:self.noteColor];
+    CIColor * color = [self.noteColor psr_ciColor];
     self.colorSelectView.colorView.backgroundColor = [UIColor
                                                       colorWithRed:self.colorSelectView.redSlider.value
                                                       green:self.colorSelectView.greenSlider.value

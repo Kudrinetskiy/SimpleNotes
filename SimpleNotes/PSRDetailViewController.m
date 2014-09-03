@@ -21,26 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /*
-    self.view.backgroundColor = [UIColor whiteColor];
-    CGRect frame = self.view.bounds;
-    frame.size.height += 200;
-    frame.origin.y += 50;
-    self.textView = [[UITextView alloc] initWithFrame:frame];
-    [self.view addSubview:self.textView];
-    
-    UIButton * textColorButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    textColorButton.titleLabel.font = [UIFont systemFontOfSize:17];
-    [textColorButton setTitle:@"change text color" forState:UIControlStateNormal];
-    [textColorButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [textColorButton setBackgroundColor:[UIColor blueColor]];
-    [textColorButton setContentEdgeInsets:UIEdgeInsetsMake(4, 10, 4, 10)];
-    [textColorButton sizeToFit];
-    textColorButton.center = CGPointMake(160, 90);
-    [self.view addSubview:textColorButton];
-    [textColorButton addTarget:self action:@selector(changeTextColor) forControlEvents:UIControlEventTouchUpInside];
-     */
-    
     self.navigationItem.title = self.note.text;
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
     self.navigationItem.rightBarButtonItem = cancelButton;

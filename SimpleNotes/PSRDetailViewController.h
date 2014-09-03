@@ -17,6 +17,4 @@
 @property (nonatomic) IBOutlet UITextView *textView;
 @property (nonatomic) PSRNote *note;
 
-- (IBAction)changeFontSize:(id)sender;
-
 @end
