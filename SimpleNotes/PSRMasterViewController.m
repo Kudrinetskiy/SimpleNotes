@@ -72,7 +72,8 @@
 #pragma mark - UITableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"showDetail" sender:nil];
+    PSRNote * note = [[[PSRNoteManager sharedManager] notes] objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"showDetail" sender:note];
 }
 
 #pragma mark - Segue
@@ -80,9 +81,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showDetail"]) {
-        PSRDetailViewController * dvc = [segue destinationViewController];
-        NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
-        dvc.note = [[[PSRNoteManager sharedManager] notes] objectAtIndex:indexPath.row];
+        [[segue destinationViewController] setNote:sender];
     }
 }
 
