@@ -57,7 +57,7 @@
 
 #pragma mark - PSRColorSelectViewController delegate
 
-- (void)addColorSelectViewController:(PSRColorSelectViewController *)colorSelectViewController didFinishEditingColor:(UIColor *)color
+- (void)addColorSelectViewController:(PSRColorSelectViewController *)colorSelectViewController didSetColor:(UIColor *)color
 {
     self.textView.textColor = color;
 }

@@ -12,7 +12,7 @@
 #import "UIColor+PSRColorConversion.h"
 
 @interface PSRColorSelectViewController ()
-
+@property (nonatomic) IBOutlet PSRColorSelectView * colorSelectView;
 @end
 
 @implementation PSRColorSelectViewController
@@ -23,29 +23,14 @@
 {
     [super viewDidLoad];
     
-    self.colorSelectView = (PSRColorSelectView *)self.view;
-    self.colorSelectView.colorView.backgroundColor = self.noteColor;
-    CIColor * color = [self.noteColor psr_ciColor];
-    self.colorSelectView.redSlider.value = color.red;
-    self.colorSelectView.greenSlider.value = color.green;
-    self.colorSelectView.blueSlider.value = color.blue;
+    [self.colorSelectView setPreviousColor:self.noteColor];
 }
 
 #pragma mark - IBActions
 
-- (IBAction)setComponent:(id)sender
-{
-    CIColor * color = [self.noteColor psr_ciColor];
-    self.colorSelectView.colorView.backgroundColor = [UIColor
-                                                      colorWithRed:self.colorSelectView.redSlider.value
-                                                      green:self.colorSelectView.greenSlider.value
-                                                      blue:self.colorSelectView.blueSlider.value
-                                                      alpha:color.alpha];
-}
-
 - (IBAction)finishColorEditing:(id)sender
 {
-    [self.delegate addColorSelectViewController:self didFinishEditingColor:self.colorSelectView.colorView.backgroundColor];
+    [self.delegate addColorSelectViewController:self didSetColor:[self.colorSelectView getSelectedColor]];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

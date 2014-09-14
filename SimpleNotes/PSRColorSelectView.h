@@ -10,9 +10,7 @@
 
 @interface PSRColorSelectView : UIView
 
-@property (nonatomic) IBOutlet UIView * colorView;
-@property (nonatomic) IBOutlet UISlider *redSlider;
-@property (nonatomic) IBOutlet UISlider *greenSlider;
-@property (nonatomic) IBOutlet UISlider *blueSlider;
+- (void)setPreviousColor:(UIColor *)color;
+- (UIColor *)getSelectedColor;
 
 @end

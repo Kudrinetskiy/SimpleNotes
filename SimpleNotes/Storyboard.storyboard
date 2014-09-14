@@ -87,10 +87,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="17" minimumValue="13" maximumValue="31" stepValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="noM-HQ-J13">
-                                <rect key="frame" x="206" y="27" width="94" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </stepper>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="font size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVJ-9h-31m">
                                 <rect key="frame" x="219" y="86" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -98,6 +94,10 @@
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="17" minimumValue="13" maximumValue="31" stepValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="noM-HQ-J13">
+                                <rect key="frame" x="206" y="115" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </stepper>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s2E-Pi-XAl">
                                 <rect key="frame" x="0.0" y="175" width="320" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -172,7 +172,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.001125264683" green="0.54406489160000004" blue="0.0017458702110000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="setComponent:" destination="Llw-3h-nyj" eventType="valueChanged" id="AiB-ei-xpC"/>
+                                    <action selector="setColorViewColor:" destination="LbI-5Q-ex0" eventType="valueChanged" id="Bfq-re-ZMw"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CMa-ni-x2R">
@@ -180,14 +180,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="setComponent:" destination="Llw-3h-nyj" eventType="valueChanged" id="QEg-qC-8SQ"/>
+                                    <action selector="setColorViewColor:" destination="LbI-5Q-ex0" eventType="valueChanged" id="X3n-d1-YD0"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mc2-2v-63V">
                                 <rect key="frame" x="40" y="376" width="240" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="setComponent:" destination="Llw-3h-nyj" eventType="valueChanged" id="wPb-cu-4lD"/>
+                                    <action selector="setColorViewColor:" destination="LbI-5Q-ex0" eventType="valueChanged" id="1CJ-QL-5cL"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="red" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXj-yX-uKe">
