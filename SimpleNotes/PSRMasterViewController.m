@@ -21,15 +21,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CGRect frame = self.view.bounds;
-    frame.size.height -= 64;
-    frame.origin.y += 64;
-    self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
-    self.navigationItem.title = @"Notes";
+    [self.view addConstraints:[NSLayoutConstraint
+                                    constraintsWithVisualFormat:@"V:|[_tableView]|"
+                                    options:NSLayoutFormatDirectionLeadingToTrailing
+                                    metrics:nil
+                                    views:NSDictionaryOfVariableBindings(_tableView)]];
     
+    [self.view addConstraints:[NSLayoutConstraint
+                                    constraintsWithVisualFormat:@"H:|[_tableView]|"
+                                    options:NSLayoutFormatDirectionLeadingToTrailing
+                                    metrics:nil
+                                    views:NSDictionaryOfVariableBindings(_tableView)]];
+    
+    self.navigationItem.title = @"Notes";
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNote)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
